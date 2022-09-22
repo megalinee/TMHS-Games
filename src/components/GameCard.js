@@ -11,7 +11,7 @@ export default function GameCard(props) {
     let isSelected = props.selectedGame.id === props.game.id
     return (
         <motion.div animate={{ scale: isSelected ? 1 : .9 }}>
-            <Card sx={{ maxWidth: 345 }} style={{ outline: isSelected ? '3px solid white' : '0px' }} onClick={() => { window.selectedGame = props.game; console.log("DID IT") }}>
+            <Card sx={{ maxWidth: 345 }} style={{ outline: isSelected ? '3px solid white' : '0px' }} onClick={() => { window.selectedGame = props.game }}>
                 <CardActionArea>
                     <CardMedia
                         component="img"

@@ -18,7 +18,7 @@ export default class InfoDisplay extends Component {
 
                         <Grid container spacing={2} justify="center" style={{ zIndex: .5, position: "absolute", top: '0%' }}>
 
-                            <Grid item sm={7} style={{ marginTop: "10%" }}>
+                            <Grid item sm={7} style={{ marginTop: "10vh" }}>
                                 <Paper style={{ backgroundColor: 'rgba(0,0,0,0.9)', marginLeft: '20px', paddingRight: '20px', marginTop: '10px', display: 'inline-table', lineHeight: '0' }} elevation={3} sm={3}>
                                     <h1 style={{ fontSize: '70px', marginLeft: '20px' }}>{game.title}</h1>
                                 </Paper>
@@ -31,13 +31,13 @@ export default class InfoDisplay extends Component {
                                     <p style={{ fontSize: '30px', marginLeft: '20px' }}>Created by {game.author}</p>
                                 </Paper>
                             </Grid>
-                            <Grid item container style={{ marginTop: "2%" }} alignItems="center" justifyContent="center" direction="column" sm={5} spacing={0}>
+                            <Grid item container style={{ marginTop: "2vh" }} alignItems="center" justifyContent="center" direction="column" sm={5} spacing={0}>
                                 <Grid item>
                                     <img alt="Preview 1" style={{ maxWidth: "45vw", maxHeight: "30vh", borderRadius: '10px' }} src={`/static/images/cards/${game.id}/preview1.png`} />
                                 </Grid>
                                 <Spacer size="2vh"></Spacer>
                                 <Grid item>
-                                    <img alt="Preview 2" style={{ maxWidth: "45vw", maxHeight: "30vh", borderRadius: '10px' }} src={`/static/images/cards/${game.id}/preview1.png`} />
+                                    <img alt="Preview 2" style={{ maxWidth: "45vw", maxHeight: "30vh", borderRadius: '10px' }} src={`/static/images/cards/${game.id}/preview2.png`} />
                                 </Grid>
                             </Grid>
 
