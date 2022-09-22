@@ -5,13 +5,15 @@ export const games = [
         category: "Info",
         title: "About",
         description: "This machine is filled with games made by our very own TMHS Computer Science students! It's free to play but consider donating in the coin deposit below",
+        author: "TMHS CS",
         backgroundColor: "#814A1E"
     },
     {
         id: "1",
         category: "Space",
-        title: "Bullet Hell",
+        title: "Bullet Heck",
         description: "Attempt to defeat the incredibly hard space ship final boss given your limited lives!",
+        author: "David Monroe",
         backgroundColor: "#814A1E"
     },
     {
@@ -19,6 +21,7 @@ export const games = [
         category: "Space",
         title: "Bullet Hell",
         description: "Attempt to defeat the incredibly hard space ship final boss given your limited lives!",
+        author: "David Monroe",
         backgroundColor: "#814A1E"
     },
     {
@@ -26,6 +29,7 @@ export const games = [
         category: "Space",
         title: "Bullet Hell",
         description: "Attempt to defeat the incredibly hard space ship final boss given your limited lives!",
+        author: "David Monroe",
         backgroundColor: "#814A1E"
     },
     {
@@ -33,6 +37,7 @@ export const games = [
         category: "Space",
         title: "Bullet Hell",
         description: "Attempt to defeat the incredibly hard space ship final boss given your limited lives!",
+        author: "David Monroe",
         backgroundColor: "#814A1E"
     },
     {
@@ -40,6 +45,7 @@ export const games = [
         category: "Space",
         title: "Bullet Hell",
         description: "Attempt to defeat the incredibly hard space ship final boss given your limited lives!",
+        author: "David Monroe",
         backgroundColor: "#814A1E"
     },
     {
@@ -47,6 +53,7 @@ export const games = [
         category: "Space",
         title: "Bullet Hell",
         description: "Attempt to defeat the incredibly hard space ship final boss given your limited lives!",
+        author: "David Monroe",
         backgroundColor: "#814A1E"
     }
 

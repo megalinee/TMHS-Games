@@ -4,8 +4,27 @@
 }
 
 .slick-slide > div {
-  margin: 0 10px;
+  margin: 10px 20px;
+  height: auto;
 }
 .slick-list {
-  margin: 0 -10px;
+  margin: 10px -20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+
+.bg-blurred-image {
+  /* Add the blur effect */
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

@@ -24,24 +24,24 @@ export default class CenterMode extends React.Component {
     render() {
         const settings = {
             className: "slider variable-width",
+            centerMode: true,
             infinite: true,
             slidesToShow: 5,
             speed: 500,
             focusOnSelect: true,
-            variableWidth: true,
+            adaptiveHeight: true,
             arrows: false
         };
         return (
-            <div>
+            <div style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}>
                 <currentGame.Consumer>
                     {({ game, updateGame }) => (
                         <>
-                            {game.title}
 
                             < Slider ref={slider => (this.slider = slider)} beforeChange={(current, next) => updateGame(this.props.games[next])} {...settings}>
-                                {this.props.games.map((game) =>
+                                {this.props.games.map((igame) =>
                                     <div>
-                                        <GameCard key={game.id} game={game} onClick={() => { window.selectedGame = game }} />
+                                        <GameCard key={igame.id} game={igame} selectedGame={game} />
                                     </div>
                                 )}
                             </Slider>

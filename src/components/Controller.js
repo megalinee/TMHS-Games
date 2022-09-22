@@ -2,10 +2,6 @@ import React, { Component } from 'react'
 import Gamepad from 'react-gamepad'
 
 export default class Controller extends Component {
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         return (
             <Gamepad
