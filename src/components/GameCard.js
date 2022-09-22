@@ -7,11 +7,11 @@ import { motion } from "framer-motion"
 import { CardActionArea } from '@mui/material';
 
 export default function GameCard(props) {
-    let imageURL = `/static/images/cards/${props.game.id}/${props.game.id}.png`
+    let imageURL = `/static/images/cards/${props.game.id}/thumbnail.png`
     let isSelected = props.selectedGame.id === props.game.id
     return (
         <motion.div animate={{ scale: isSelected ? 1 : .9 }}>
-            <Card sx={{ maxWidth: 345 }} style={{ outline: isSelected ? '3px solid white' : '0px' }} onClick={() => { window.selectedGame = props.game }}>
+            <Card sx={{ maxWidth: 345 }} style={{ outline: isSelected ? '3px solid rgb(255,255,255,.5)' : '0px' }} onClick={() => { window.selectedGame = props.game }}>
                 <CardActionArea>
                     <CardMedia
                         component="img"

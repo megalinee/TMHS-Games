@@ -6,7 +6,7 @@ export const games = [
         title: "About",
         description: "This machine is filled with games made by our very own TMHS Computer Science students! It's free to play but consider donating in the coin deposit below",
         author: "TMHS CS",
-        backgroundColor: "#814A1E"
+        color: "0, 0, 54"
     },
     {
         id: "1",
@@ -14,7 +14,7 @@ export const games = [
         title: "Bullet Heck",
         description: "Attempt to defeat the incredibly hard space ship final boss given your limited lives!",
         author: "David Monroe",
-        backgroundColor: "#814A1E"
+        color: "0, 0, 0"
     },
     {
         id: "2",
@@ -22,7 +22,7 @@ export const games = [
         title: "Bullet Hell",
         description: "Attempt to defeat the incredibly hard space ship final boss given your limited lives!",
         author: "David Monroe",
-        backgroundColor: "#814A1E"
+        color: "0, 0, 0"
     },
     {
         id: "3",
@@ -30,7 +30,7 @@ export const games = [
         title: "Bullet Hell",
         description: "Attempt to defeat the incredibly hard space ship final boss given your limited lives!",
         author: "David Monroe",
-        backgroundColor: "#814A1E"
+        color: "0, 0, 0"
     },
     {
         id: "4",
@@ -38,7 +38,7 @@ export const games = [
         title: "Bullet Hell",
         description: "Attempt to defeat the incredibly hard space ship final boss given your limited lives!",
         author: "David Monroe",
-        backgroundColor: "#814A1E"
+        color: "0, 0, 0"
     },
     {
         id: "5",
@@ -46,7 +46,7 @@ export const games = [
         title: "Bullet Hell",
         description: "Attempt to defeat the incredibly hard space ship final boss given your limited lives!",
         author: "David Monroe",
-        backgroundColor: "#814A1E"
+        color: "0, 0, 0"
     },
     {
         id: "6",
@@ -54,7 +54,7 @@ export const games = [
         title: "Bullet Hell",
         description: "Attempt to defeat the incredibly hard space ship final boss given your limited lives!",
         author: "David Monroe",
-        backgroundColor: "#814A1E"
+        color: "0, 0, 0"
     }
 
 ];
