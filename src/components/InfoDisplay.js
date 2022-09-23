@@ -20,8 +20,11 @@ export default class InfoDisplay extends Component {
 
             <currentGame.Consumer>
                 {({ game, updateGame }) => (
+
                     <div style={{ height: height, transition: 'width 0.5s 0.5s, height 0.5s 0.5s, opacity 0.5s' }}>
-                        <div style={{ zIndex: -2, backgroundImage: `url("/static/images/cards/${game.id}/thumbnail.png")` }} className="bg-blurred-image"></div>
+                        <motion.div style={{ zIndex: -2, backgroundImage: `url("/static/images/cards/${game.id}/thumbnail.png")` }} className="bg-blurred-image" key={game.id} animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
+                            <div ></div>
+                        </motion.div>
                         <Grid container style={{ zIndex: .5 }}>
 
                             <Grid item sm={8} alignItems="center" justifyContent="center" style={{ marginTop: "10vh", position: "absolute", top: '0%', left: '0%' }}>
