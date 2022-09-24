@@ -2,71 +2,92 @@ import React, { Component } from 'react'
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
+import GamepadIcon from '@mui/icons-material/Gamepad';
+import Gamepad from 'react-gamepad'
 
 
 import { currentGame } from "../App";
 import Spacer from './Spacer';
 import { motion } from "framer-motion"
 
-export default class InfoDisplay extends Component {
+const spring = {
+    type: "spring",
+    stiffness: 700,
+    damping: 30
+};
 
-    componentDidMount() {
-        console.log("test")
+export default class InfoDisplay extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { buttonClicked: false };
+    }
+
+    clickedButton(category) {
+        console.log('CLICK', this.button);
+        if (category != "Info") {
+            this.setState({ buttonClicked: !this.state.buttonClicked })
+        }
     }
 
     render() {
-        let height = '70vh'
+        let height = '80vh'
         return (
+            <div>
+                <currentGame.Consumer>
+                    {({ game, updateGame }) => (
 
-            <currentGame.Consumer>
-                {({ game, updateGame }) => (
+                        <div style={{ height: height }}>
+                            <motion.div layout style={{ height: height, zIndex: -2, backgroundImage: `url("/static/images/cards/${game.id}/thumbnail.png")` }} className="bg-blurred-image" key={game.id} animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
+                            </motion.div>
+                            <Grid container style={{ zIndex: .5, height: "100%" }}>
 
-                    <div style={{ height: height, transition: 'width 0.5s 0.5s, height 0.5s 0.5s, opacity 0.5s' }}>
-                        <motion.div style={{ zIndex: -2, backgroundImage: `url("/static/images/cards/${game.id}/thumbnail.png")` }} className="bg-blurred-image" key={game.id} animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
-                            <div ></div>
-                        </motion.div>
-                        <Grid container style={{ zIndex: .5 }}>
-
-                            <Grid item sm={8} alignItems="center" justifyContent="center" style={{ marginTop: "10vh", position: "absolute", top: '0%', left: '0%' }}>
-                                <Paper style={{ backgroundColor: `rgba(${game.color},0.9)`, marginLeft: '20px', paddingRight: '20px', marginTop: '10px', display: 'inline-table', lineHeight: '0' }} elevation={3} sm={3}>
-                                    <h1 style={{ fontSize: '70px', marginLeft: '20px' }}>{game.title}</h1>
-                                </Paper>
-                                <Spacer size="2vh"></Spacer>
-                                <Paper style={{ backgroundColor: `rgba(${game.color},0.9)`, marginLeft: '20px', paddingRight: '20px', display: 'inline-table' }} elevation={2}>
-                                    <p style={{ fontSize: '25px', marginLeft: '20px' }}>{game.description}</p>
-                                </Paper>
-                                <Spacer size="2vh"></Spacer>
-                                <Paper style={{ backgroundColor: `rgba(${game.color},0.9)`, marginLeft: '20px', paddingRight: '20px', display: 'inline-table', lineHeight: '0' }} elevation={2}>
-                                    <p style={{ fontSize: '30px', marginLeft: '20px' }}>Created by {game.author}</p>
-
-                                </Paper>
-                                <Spacer size="2vh"></Spacer>
-                                <motion.div animate={{ opacity: game.category != "Info" ? 1 : 0 }}>
-                                    <Button style={{ fontSize: '30px', backgroundColor: `rgba(${game.color},0.9)`, marginLeft: '25vw' }} variant="outlined">Click To Play</Button>
-                                </motion.div>
-                            </Grid>
-                            <Grid item container style={{ marginTop: "2vh", position: "absolute", top: '0%', right: '0%' }} alignItems="center" justifyContent="center" direction="column" sm={4} spacing={0}>
-                                <motion.div key={game.id} animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
-                                    <Paper style={{ backgroundColor: `rgba(${game.color},0.9)`, paddingLeft: '15px', paddingRight: '15px', paddingTop: '10px', paddingBottom: '5px' }} elevation={3}>
-                                        <Grid item>
-
-                                            <img alt="Preview 1" style={{ maxWidth: "45vw", maxHeight: "30vh", borderRadius: '5px' }} src={`/static/images/cards/${game.id}/preview1.png`} />
-
-                                        </Grid>
-                                        <Spacer size="2vh"></Spacer>
-                                        <Grid item>
-                                            <img alt="Preview 2" style={{ maxWidth: "45vw", maxHeight: "30vh", borderRadius: '5px' }} src={`/static/images/cards/${game.id}/preview2.png`} />
-                                        </Grid>
+                                <Grid item sm={8} alignItems="center" style={{ textAlign: "center", margin: "auto" }}>
+                                    <Paper style={{ maxWidth: '60vw', backgroundColor: `rgba(${game.color},0.7)`, paddingLeft: '20px', paddingRight: '20px', marginTop: '10px', display: 'inline-table', lineHeight: '0' }} elevation={3} sm={3}>
+                                        <h1 style={{ fontSize: 'calc(50px + 2vw)' }}>{game.title}</h1>
                                     </Paper>
-                                </motion.div>
+                                    <Spacer size="2vh"></Spacer>
+                                    <Paper style={{ maxWidth: '60vw', backgroundColor: `rgba(${game.color},0.7)`, paddingLeft: '20px', paddingRight: '20px', display: 'inline-table' }} elevation={2}>
+                                        <p style={{ fontSize: 'calc(20px + .5vw)' }}>{game.description}</p>
+                                    </Paper>
+                                    <Spacer size="2vh"></Spacer>
+                                    <Paper style={{ maxWidth: '40vw', backgroundColor: `rgba(${game.color},0.7)`, paddingLeft: '20px', paddingRight: '20px', display: 'inline-table' }} elevation={2}>
+                                        <p style={{ fontSize: 'calc(10px + .75vw)' }}>Created by {game.author}</p>
+
+                                    </Paper>
+                                    <Spacer size="2vh"></Spacer>
+                                    <motion.div key={game.id} onClick={() => this.clickedButton(game.category)} transition={spring} animate={{ y: this.state.buttonClicked ? [0, 5, 0] : 0, scale: (this.state.buttonClicked ? [null, .9, 1] : 1), scalex: (this.props.gamepadState ? [null, 1.1, 1] : 1) }}>
+                                        {game.category != "Info" ?
+                                            <Button ref={(input) => (this.button = input)} style={{ marginLeft: '20px', fontSize: '30px', backgroundColor: `rgba(${game.color},.8)` }} variant="outlined">
+                                                {this.props.gamepadState ? <div><GamepadIcon /> Press A To Play</div> : 'Click To Play'}
+                                            </Button>
+                                            : ''}
+                                    </motion.div>
+                                </Grid>
+                                <Grid item container style={{ display: "flex", margin: "auto" }} alignItems="center" justifyContent="center" direction="column" sm={4}>
+                                    <motion.div key={game.id} animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
+                                        <Paper style={{ backgroundColor: `rgba(${game.color},0.7)`, paddingLeft: '15px', paddingRight: '15px', paddingTop: '10px', paddingBottom: '5px' }} elevation={3}>
+                                            <Grid item>
+                                                <img alt="Preview 1" style={{ maxWidth: "29vw", maxHeight: "28vh", borderRadius: '5px' }} src={`/static/images/cards/${game.id}/preview1.png`} />
+                                            </Grid>
+                                            <Spacer size="2vh"></Spacer>
+                                            <Grid item>
+                                                <img alt="Preview 2" style={{ maxWidth: "29vw", maxHeight: "28vh", borderRadius: '5px' }} src={`/static/images/cards/${game.id}/preview2.png`} />
+                                            </Grid>
+                                        </Paper>
+                                    </motion.div>
+                                </Grid>
+
                             </Grid>
+                            <Gamepad onA={() => { this.clickedButton(game.category) }}>
+                                <div>
+                                </div>
+                            </Gamepad>
+                        </div >
+                    )
+                    }
+                </currentGame.Consumer>
 
-                        </Grid>
-
-                    </div >
-                )
-                }
-            </currentGame.Consumer>
+            </div>
         )
     }
 }

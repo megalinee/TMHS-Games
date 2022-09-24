@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import React from "react"
 import GameCard from "./GameCard";
-import Controller from "./Controller";
+import Gamepad from 'react-gamepad'
 import { currentGame } from "../App";
 
 export default class CenterMode extends React.Component {
@@ -48,7 +48,14 @@ export default class CenterMode extends React.Component {
                         </>
                     )}
                 </currentGame.Consumer>
-                <Controller left={this.prev} right={this.next} />
+                <Gamepad
+                    onLeft={() => { this.prev() }}
+                    onRight={() => { this.next() }}
+                >
+                    <div>
+                    </div>
+                </Gamepad>
+
             </div >
         );
     }
