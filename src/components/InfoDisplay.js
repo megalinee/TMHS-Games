@@ -57,7 +57,7 @@ export default class InfoDisplay extends Component {
                                     <Spacer size="2vh"></Spacer>
                                     <motion.div key={game.id} onClick={() => this.clickedButton(game.category)} transition={spring} animate={{ y: this.state.buttonClicked ? [0, 5, 0] : 0, scale: (this.state.buttonClicked ? [null, .9, 1] : 1), scalex: (this.props.gamepadState ? [null, 1.1, 1] : 1) }}>
                                         {game.category != "Info" ?
-                                            <Button ref={(input) => (this.button = input)} style={{ marginLeft: '20px', fontSize: '30px', backgroundColor: `rgba(${game.color},.8)` }} variant="outlined">
+                                            <Button ref={(input) => (this.button = input)} style={{ fontSize: '30px', backgroundColor: `rgba(${game.color},.8)` }} variant="outlined">
                                                 {this.props.gamepadState ? <div><GamepadIcon /> Press A To Play</div> : 'Click To Play'}
                                             </Button>
                                             : ''}
