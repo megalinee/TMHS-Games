@@ -7,6 +7,7 @@ import Gamepad from 'react-gamepad'
 
 
 import { currentGame } from "../App";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Spacer from './Spacer';
 import { motion } from "framer-motion"
 
@@ -67,11 +68,15 @@ export default class InfoDisplay extends Component {
                                     <motion.div key={game.id} animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
                                         <Paper style={{ backgroundColor: `rgba(${game.color},0.7)`, paddingLeft: '15px', paddingRight: '15px', paddingTop: '10px', paddingBottom: '5px' }} elevation={3}>
                                             <Grid item>
-                                                <img alt="Preview 1" style={{ maxWidth: "29vw", maxHeight: "28vh", borderRadius: '5px' }} src={`/static/images/cards/${game.id}/preview1.png`} />
+                                                <LazyLoadImage style={{ maxWidth: "29vw", maxHeight: "28vh", borderRadius: '5px' }}
+                                                    alt={"Preview 1"}
+                                                    src={`/static/images/cards/${game.id}/preview1.png`} />
                                             </Grid>
                                             <Spacer size="2vh"></Spacer>
                                             <Grid item>
-                                                <img alt="Preview 2" style={{ maxWidth: "29vw", maxHeight: "28vh", borderRadius: '5px' }} src={`/static/images/cards/${game.id}/preview2.png`} />
+                                                <LazyLoadImage style={{ maxWidth: "29vw", maxHeight: "28vh", borderRadius: '5px' }}
+                                                    alt={"Preview 2"}
+                                                    src={`/static/images/cards/${game.id}/preview2.png`} />
                                             </Grid>
                                         </Paper>
                                     </motion.div>

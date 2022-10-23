@@ -17,6 +17,7 @@
     "react-gamepad": "^1.0.3",
     "react-gamepads": "^1.0.0",
     "react-horizontal-scrolling-menu": "^3.2.0",
+    "react-lazy-load-image-component": "^1.5.5",
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
     "react-stacked-center-carousel": "^1.0.12",
