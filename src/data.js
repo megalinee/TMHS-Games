@@ -26,7 +26,7 @@ export const games = [
     },
     {
         id: "3",
-        category: "Space",
+        category: "Party",
         title: "Bullet Hell",
         description: "Attempt to defeat the incredibly hard space ship final boss given your limited lives!",
         author: "David Monroe",
