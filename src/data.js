@@ -2,10 +2,11 @@
 export const categories = [
     "All",
     "Party",
-    "Space"
+    "Space",
+    "Death Grips"
 ]
 
-// Games to be displayed
+// Games to be displayed, seperate categories with ", "
 export const games = [
     {
         id: "0",
@@ -49,7 +50,7 @@ export const games = [
     },
     {
         id: "5",
-        category: "Space",
+        category: "Death Grips, Party",
         title: "Bullet monroe",
         description: "Attempt to defeat the incredibly hard space ship final boss given your limited lives!",
         author: "Bullet God",
@@ -57,7 +58,7 @@ export const games = [
     },
     {
         id: "6",
-        category: "Space",
+        category: "Space, Partyy",
         title: "Bullet yeaheyah",
         description: "Attempt to defeat the incredibly hard space ship final boss given your limited lives!",
         author: "Bullet God",

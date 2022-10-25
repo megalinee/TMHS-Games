@@ -55,9 +55,7 @@ export default class CenterMode extends React.Component {
     }
 
     filterGames(Genre) {
-        console.log(Genre)
-        this.state.swiper.update()
-        return this.props.games.filter((game) => Genre === "All" || game.category === Genre)
+        return this.props.games.filter((game) => Genre === "All" || game.category.split(", ").includes(Genre))
     }
 
     componentDidUpdate(previousProps, previousState) {
