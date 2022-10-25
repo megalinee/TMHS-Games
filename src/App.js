@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import SelectSlider from './components/SelectSlider';
+import { indigo } from "@mui/material/colors";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { games } from "./data";
 import CssBaseline from '@mui/material/CssBaseline';
@@ -11,7 +12,11 @@ import Gamepad from 'react-gamepad'
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
-  },
+    background: {
+      default: '#000000',
+      paper: '#020021',
+    }
+  }
 });
 
 export const currentGame = React.createContext({

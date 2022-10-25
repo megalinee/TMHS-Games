@@ -4,16 +4,6 @@
   background: #419be0;
 }
 
-.slick-slide > div {
-  margin: 15px 0px;
-}
-.slick-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: stretch;
-}
-
 .bg-blurred-image {
   -webkit-filter: blur(20px);
   -moz-filter: blur(20px);

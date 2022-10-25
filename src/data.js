@@ -1,9 +1,11 @@
-export const category = [
+// Genre sort options
+export const categories = [
     "All",
     "Party",
     "Space"
 ]
 
+// Games to be displayed
 export const games = [
     {
         id: "0",

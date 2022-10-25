@@ -31,16 +31,16 @@ export default class InfoDisplay extends Component {
     }
 
     render() {
-        let height = '80vh'
+        let height = '90vh'
         return (
             <div>
                 <currentGame.Consumer>
                     {({ game, updateGame }) => (
 
                         <div style={{ height: height }}>
-                            <motion.div layout style={{ height: height, zIndex: -2, backgroundImage: `url("/static/images/cards/${game.id}/thumbnail.png")` }} className="bg-blurred-image" key={game.id} animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
+                            <motion.div layout style={{ height: height, zIndex: -2, backgroundImage: `linear-gradient( rgba(0, 0, 0, 0), rgba(0, 0, 0, .2) ), url("/static/images/cards/${game.id}/thumbnail.png")` }} className="bg-blurred-image" key={game.id} animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
                             </motion.div>
-                            <Grid container style={{ zIndex: .5, height: "100%" }}>
+                            <Grid container style={{ zIndex: .5, height: '80vh' }}>
 
                                 <Grid item sm={8} alignItems="center" style={{ textAlign: "center", margin: "auto" }}>
                                     <Paper style={{ maxWidth: '60vw', backgroundColor: `rgba(${game.color},0.7)`, paddingLeft: '20px', paddingRight: '20px', marginTop: '10px', display: 'inline-table', lineHeight: '0' }} elevation={3} sm={3}>
@@ -58,7 +58,7 @@ export default class InfoDisplay extends Component {
                                     <Spacer size="2vh"></Spacer>
                                     <motion.div key={game.id} onClick={() => this.clickedButton(game.category)} transition={spring} animate={{ y: this.state.buttonClicked ? [0, 5, 0] : 0, scale: (this.state.buttonClicked ? [null, .9, 1] : 1), scalex: (this.props.gamepadState ? [null, 1.1, 1] : 1) }}>
                                         {game.category != "Info" ?
-                                            <Button ref={(input) => (this.button = input)} style={{ fontSize: '30px', backgroundColor: `rgba(${game.color},.8)` }} variant="outlined">
+                                            <Button ref={(input) => (this.button = input)} style={{ fontSize: '30px', backgroundColor: `rgba(0,0,0,.8)` }} variant="outlined">
                                                 {this.props.gamepadState ? <div><GamepadIcon /> Press A To Play</div> : 'Click To Play'}
                                             </Button>
                                             : ''}

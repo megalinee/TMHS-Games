@@ -1,6 +1,6 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { category } from "../data";
+import { categories } from "../data";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Keyboard } from 'swiper';
@@ -71,10 +71,10 @@ export default class CenterMode extends React.Component {
     render() {
         return (
             <>
-                <div style={{ position: "absolute", top: "0px", paddingLeft: "20px", paddingTop: "20px" }}>
+                <div style={{ position: "absolute", bottom: "28vh", paddingLeft: "20px", paddingTop: "20px" }}>
                     <FormControl sx={{ m: 1, minWidth: 120 }} size="large">
-                        <InputLabel id="demo-select-large">Genre</InputLabel>
-                        <Select
+                        <InputLabel style={{ fontSize: '18px', color: "white" }} id="demo-select-large">Genre</InputLabel>
+                        <Select style={{ fontSize: '20px', backgroundColor: `rgba(0,0,0,.5)`, outlineWidth: '10px' }}
                             labelId="demo-select-large"
                             id="demo-select-large"
                             value={this.state.Genre}
@@ -83,22 +83,19 @@ export default class CenterMode extends React.Component {
                                 this.handleGenreChange(change)
                             }}
                         >
-                            {category.map((icategory) =>
-                                <MenuItem key={icategory} value={icategory}>{icategory}</MenuItem>
+                            {categories.map((category) =>
+                                <MenuItem key={category} value={category}>{category}</MenuItem>
                             )}
                         </Select>
                     </FormControl>
                 </div >
-                <div style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}>
+                <div style={{ position: "absolute", bottom: "5px", left: "0px", right: 0 }}>
                     <currentGame.Consumer>
                         {({ game, updateGame }) => (
                             <>
                                 <Swiper
                                     slidesPerView={5}
                                     preloadImages={true}
-                                    observer={true}
-                                    watchactiveindex={"true"}
-                                    observeParents={true}
                                     speed={600}
                                     spaceBetween={1}
                                     keyboard={true}
@@ -138,13 +135,13 @@ export default class CenterMode extends React.Component {
                         onLeft={() => { this.prev() }}
                         onRight={() => { this.next() }}
                         onUp={() => {
-                            this.setState({ Genre: category[((category.indexOf(this.state.Genre) + 1) % category.length)] })
+                            this.setState({ Genre: categories[((categories.indexOf(this.state.Genre) + 1) % categories.length)] })
                         }}
                         onDown={() => {
-                            let index = category.indexOf(this.state.Genre) - 1
-                            if (index < 0) index = category.length - 1
+                            let index = categories.indexOf(this.state.Genre) - 1
+                            if (index < 0) index = categories.length - 1
                             this.setState({
-                                Genre: category[index]
+                                Genre: categories[index]
                             })
                         }}
                     >
