@@ -1,5 +1,10 @@
+export const category = [
+    "All",
+    "Party",
+    "Space"
+]
+
 export const games = [
-    // https://codesandbox.io/s/framer-motion-animatesharedlayout-app-store-demo-i1kct
     {
         id: "0",
         category: "Info",
@@ -11,7 +16,7 @@ export const games = [
     {
         id: "1",
         category: "Space",
-        title: "Bullet Heck",
+        title: "Bullet",
         description: "Attempt to defeat the incredibly hard space ship final boss given your limited lives!",
         author: "David Monroe",
         color: "1, 1, 1"
@@ -35,7 +40,7 @@ export const games = [
     {
         id: "4",
         category: "Space",
-        title: "Bullet Hell",
+        title: "Bullet bruh",
         description: "Attempt to defeat the incredibly hard space ship final boss given your limited lives!",
         author: "David Monroe",
         color: "0, 0, 0"
@@ -43,7 +48,7 @@ export const games = [
     {
         id: "5",
         category: "Space",
-        title: "Bullet Hell",
+        title: "Bullet monroe",
         description: "Attempt to defeat the incredibly hard space ship final boss given your limited lives!",
         author: "David Monroe",
         color: "0, 0, 0"
@@ -51,7 +56,7 @@ export const games = [
     {
         id: "6",
         category: "Space",
-        title: "Bullet Hell",
+        title: "Bullet yeaheyah",
         description: "Attempt to defeat the incredibly hard space ship final boss given your limited lives!",
         author: "David Monroe",
         color: "0, 0, 0"
