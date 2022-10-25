@@ -1,5 +1,3 @@
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { categories } from "../data";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -8,12 +6,10 @@ import SwiperCore, { Keyboard } from 'swiper';
 SwiperCore.use([Keyboard]);
 
 import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import React from "react"
 import GameCard from "./GameCard";
 import Gamepad from 'react-gamepad'
@@ -41,6 +37,20 @@ export default class CenterMode extends React.Component {
 
     goto(index) {
         this.state.swiper.slideTo(index)
+    }
+
+    nextGenre() {
+        this.setState({ Genre: categories[((categories.indexOf(this.state.Genre) + 1) % categories.length)] })
+        this.goto(0)
+        updateGame(this.state.Games[0])
+    }
+
+    prevGenre() {
+        let index = categories.indexOf(this.state.Genre) - 1
+        if (index < 0) index = categories.length - 1
+        this.setState({
+            Genre: categories[index]
+        })
     }
 
     updateSwiper(value) {
@@ -120,7 +130,7 @@ export default class CenterMode extends React.Component {
                                     slideToClickedSlide={true}
                                 >
                                     {this.state.Games.map((igame) =>
-                                        <SwiperSlide isActive key={igame.id}>
+                                        <SwiperSlide key={igame.id}>
                                             <GameCard game={igame} selectedGame={game} />
                                         </SwiperSlide>
                                     )}
@@ -132,16 +142,8 @@ export default class CenterMode extends React.Component {
                     <Gamepad
                         onLeft={() => { this.prev() }}
                         onRight={() => { this.next() }}
-                        onUp={() => {
-                            this.setState({ Genre: categories[((categories.indexOf(this.state.Genre) + 1) % categories.length)] })
-                        }}
-                        onDown={() => {
-                            let index = categories.indexOf(this.state.Genre) - 1
-                            if (index < 0) index = categories.length - 1
-                            this.setState({
-                                Genre: categories[index]
-                            })
-                        }}
+                        onUp={() => { this.nextGenre() }}
+                        onDown={() => { this.prevGenre() }}
                     >
                         <div>
                         </div>

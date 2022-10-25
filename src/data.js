@@ -58,7 +58,7 @@ export const games = [
     },
     {
         id: "6",
-        category: "Space, Partyy",
+        category: "Partyy",
         title: "Bullet yeaheyah",
         description: "Attempt to defeat the incredibly hard space ship final boss given your limited lives!",
         author: "Bullet God",
