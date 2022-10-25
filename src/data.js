@@ -9,7 +9,7 @@ export const games = [
         id: "0",
         category: "Info",
         title: "TMHS Games",
-        description: "This page is filled with games made by our very own TMHS Computer Science students! It's free to play but consider donating in the coin deposit below",
+        description: "Welcome to the website! Make sure to have fun while you're here!",
         author: "TMHS CS",
         color: "0, 0, 54"
     },
@@ -18,7 +18,7 @@ export const games = [
         category: "Space",
         title: "Bullet",
         description: "Attempt to defeat the incredibly hard space ship final boss given your limited lives!",
-        author: "David Monroe",
+        author: "Bullet God",
         color: "1, 1, 1"
     },
     {
@@ -26,7 +26,7 @@ export const games = [
         category: "Party",
         title: "JBox",
         description: "Play 3 different minigames with your friends and have fun in this LAN based party game!",
-        author: "Murad Jouhari, Alex Lawless, Brandon Bennoch, Caden Wonzer, & Wyatt Golden",
+        author: "Testing testy peeopleee test test test",
         color: "215, 135, 176"
     },
     {
@@ -34,7 +34,7 @@ export const games = [
         category: "Party",
         title: "Bullet Hell",
         description: "Attempt to defeat the incredibly hard space ship final boss given your limited lives!",
-        author: "David Monroe",
+        author: "Bullet God",
         color: "0, 0, 0"
     },
     {
@@ -42,7 +42,7 @@ export const games = [
         category: "Space",
         title: "Bullet bruh",
         description: "Attempt to defeat the incredibly hard space ship final boss given your limited lives!",
-        author: "David Monroe",
+        author: "Bullet God",
         color: "0, 0, 0"
     },
     {
@@ -50,7 +50,7 @@ export const games = [
         category: "Space",
         title: "Bullet monroe",
         description: "Attempt to defeat the incredibly hard space ship final boss given your limited lives!",
-        author: "David Monroe",
+        author: "Bullet God",
         color: "0, 0, 0"
     },
     {
@@ -58,7 +58,7 @@ export const games = [
         category: "Space",
         title: "Bullet yeaheyah",
         description: "Attempt to defeat the incredibly hard space ship final boss given your limited lives!",
-        author: "David Monroe",
+        author: "Bullet God",
         color: "0, 0, 0"
     }
 
