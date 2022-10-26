@@ -22,9 +22,9 @@ export default class CenterMode extends React.Component {
         this.prev = this.prev.bind(this);
         this.goto = this.goto.bind(this);
         this.updateSwiper = this.updateSwiper.bind(this);
-        this.handleGenreChange = this.handleGenreChange.bind(this)
+        this.setGenre = this.setGenre.bind(this)
         this.filterGames = this.filterGames.bind(this)
-        this.state = { Genre: "All", Games: this.props.games }
+        this.state = { Genre: "All", Games: this.props.games, updateGame: null }
     }
 
     next() {
@@ -39,29 +39,29 @@ export default class CenterMode extends React.Component {
         this.state.swiper.slideTo(index)
     }
 
+    setGenre(genre) {
+        this.setState({ Genre: "" + genre })
+        if (this.state.updateGame !== null) {
+            this.goto(0)
+            this.state.updateGame(this.filterGames(genre)[0])
+        }
+    }
+
     nextGenre() {
-        this.setState({ Genre: categories[((categories.indexOf(this.state.Genre) + 1) % categories.length)] })
-        this.goto(0)
-        updateGame(this.state.Games[0])
+        this.setGenre(categories[((categories.indexOf(this.state.Genre) + 1) % categories.length)])
     }
 
     prevGenre() {
         let index = categories.indexOf(this.state.Genre) - 1
         if (index < 0) index = categories.length - 1
-        this.setState({
-            Genre: categories[index]
-        })
+        this.setGenre(categories[index])
     }
 
-    updateSwiper(value) {
+    updateSwiper(value, updateGame) {
         this.setState({
-            swiper: value
+            swiper: value,
+            updateGame: updateGame
         });
-    }
-
-    handleGenreChange(event) {
-        this.setState({ Genre: "" + event.target.value })
-
     }
 
     filterGames(Genre) {
@@ -69,10 +69,8 @@ export default class CenterMode extends React.Component {
     }
 
     componentDidUpdate(previousProps, previousState) {
-
         if (previousState.Genre !== this.state.Genre) {
             this.setState({ Games: this.filterGames(this.state.Genre) })
-
         }
     }
 
@@ -88,7 +86,7 @@ export default class CenterMode extends React.Component {
                             value={this.state.Genre}
                             label="Genre"
                             onChange={(change) => {
-                                this.handleGenreChange(change)
+                                this.handleGenreChange(change.target.value)
                             }}
                         >
                             {categories.map((category) =>
@@ -111,21 +109,15 @@ export default class CenterMode extends React.Component {
                                     loop={false}
                                     threshold={1}
                                     lazy={true}
-                                    onInit={this.updateSwiper}
-                                    onSlidesLengthChange={(swiperCore) => {
-                                        swiperCore.slideTo(0)
-                                        updateGame(this.state.Games[0])
+                                    onInit={(swiper) => {
+                                        this.updateSwiper(swiper, updateGame)
                                     }}
                                     onSlideChange={(swiperCore) => {
                                         const {
-                                            activeIndex,
-                                            snapIndex,
-                                            previousIndex,
-                                            realIndex,
+                                            realIndex
                                         } = swiperCore;
 
                                         updateGame(this.state.Games[realIndex])
-                                        console.log({ activeIndex, snapIndex, previousIndex, realIndex });
                                     }}
                                     slideToClickedSlide={true}
                                 >
