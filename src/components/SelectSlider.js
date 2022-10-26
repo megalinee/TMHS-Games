@@ -86,7 +86,7 @@ export default class CenterMode extends React.Component {
                             value={this.state.Genre}
                             label="Genre"
                             onChange={(change) => {
-                                this.handleGenreChange(change.target.value)
+                                this.setGenre(change.target.value)
                             }}
                         >
                             {categories.map((category) =>
