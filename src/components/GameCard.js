@@ -15,7 +15,7 @@ export default function GameCard(props) {
                 <CardActionArea>
                     <CardMedia
                         component="img"
-                        height="175"
+                        style={{ height: "20vh" }}
                         image={imageURL}
                         alt={props.game.title}
                     />
