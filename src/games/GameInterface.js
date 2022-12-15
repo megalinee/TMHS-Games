@@ -10,8 +10,8 @@ export default function GameInterface(props) {
                 animate={{ opacity: 1, transition: { delay: 1 } }}
                 exit={{ opacity: 0 }}
                 className=''
-                style={{ backgroundColor: "black", margin: -8, overflow: "hidden", width: "100vw", height: "100vh" }}>
-                <center><iframe style={{ width: "1280px", height: "990px", border: "none" }} src={link}></iframe></center>
+                style={{ backgroundColor: "black", margin: 0, overflow: "hidden", width: "100vw", height: "100vh" }}>
+                <center><iframe style={{ width: "1280px", height: "985px", border: "none" }} src={link}></iframe></center>
             </motion.div>
         </div>
     );
