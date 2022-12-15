@@ -1,9 +1,12 @@
 // Genre sort options
 export const categories = [
     "All",
-    "Party",
-    "Space",
-    "Death Grips"
+    "Shooter",
+    "Fighting",
+    "1 Player",
+    "2 Player",
+    "3 Player",
+    "4 Player"
 ]
 
 // Games to be displayed, seperate categories with ", "
@@ -17,19 +20,19 @@ export const games = [
         color: "0, 0, 54"
     },
     {
-        id: "1",
-        category: "Space",
-        title: "Bullet",
+        id: "29912",
+        category: "Shooter, 1 Player",
+        title: "Bullet Heck",
         description: "Attempt to defeat the incredibly hard space ship final boss given your limited lives!",
-        author: "Bullet God",
+        author: "David Monroe",
         color: "1, 1, 1"
     },
     {
-        id: "2",
-        category: "Party",
-        title: "JBox",
-        description: "Play 3 different minigames with your friends and have fun in this LAN based party game!",
-        author: "Testing testy peeopleee test test test",
+        id: "30372",
+        category: "2 Player, 3 Player, 4 Player, Fighting",
+        title: "Barnhouse Brawl",
+        description: "Play as a cute animal in order to knock off all of your friends in this brawler!",
+        author: "Murad Jouhari, Wyatt Golden, Brandon Bennoch, Nathan Keown",
         color: "215, 135, 176"
     },
     {

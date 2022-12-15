@@ -1,13 +1,13 @@
 import './App.css';
 import React from 'react';
 import SelectSlider from './components/SelectSlider';
-import { indigo } from "@mui/material/colors";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { games } from "./data";
 import CssBaseline from '@mui/material/CssBaseline';
 import Spacer from './components/Spacer';
 import InfoDisplay from './components/InfoDisplay';
 import Gamepad from 'react-gamepad'
+import { motion } from "framer-motion"
 
 const darkTheme = createTheme({
   palette: {
@@ -30,7 +30,11 @@ function App() {
   const value = { game: gameState, updateGame: updateGameState };
 
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
         <currentGame.Provider value={value}>
@@ -46,7 +50,7 @@ function App() {
         <div>
         </div>
       </Gamepad>
-    </div>
+    </motion.div>
   );
 }
 

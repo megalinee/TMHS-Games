@@ -4,6 +4,14 @@
   background: #419be0;
 }
 
+.switch-wrapper {
+  position: relative;
+}
+
+.switch-wrapper > div {
+  position: absolute;
+}
+
 .bg-blurred-image {
   -webkit-filter: blur(20px);
   -moz-filter: blur(20px);

@@ -13,7 +13,7 @@ import Select from '@mui/material/Select';
 import React from "react"
 import GameCard from "./GameCard";
 import Gamepad from 'react-gamepad'
-import { currentGame } from "../App";
+import { currentGame } from "../Home";
 
 export default class CenterMode extends React.Component {
     constructor(props) {
